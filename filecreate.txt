@@ -1,0 +1,60 @@
+# ---- create folders ----
+$dirs = @(
+  "app",
+  "app\modules",
+  "app\modules\masters",
+  "app\modules\masters\uom",
+  "app\modules\masters\hsn",
+  "app\modules\masters\gst_rate",
+  "app\modules\masters\tax",
+  "app\modules\product"
+)
+$dirs | ForEach-Object { New-Item -ItemType Directory -Force -Path $_ | Out-Null }
+
+# ---- create files ----
+$files = @(
+  "app\database.py",
+  "app\main.py",
+
+  "app\modules\__init__.py",
+  "app\modules\masters\__init__.py",
+
+  "app\modules\masters\uom\__init__.py",
+  "app\modules\masters\uom\models.py",
+  "app\modules\masters\uom\schemas.py",
+  "app\modules\masters\uom\repo.py",
+  "app\modules\masters\uom\service.py",
+  "app\modules\masters\uom\router.py",
+
+  "app\modules\masters\hsn\__init__.py",
+  "app\modules\masters\hsn\models.py",
+  "app\modules\masters\hsn\schemas.py",
+  "app\modules\masters\hsn\repo.py",
+  "app\modules\masters\hsn\service.py",
+  "app\modules\masters\hsn\router.py",
+
+  "app\modules\masters\gst_rate\__init__.py",
+  "app\modules\masters\gst_rate\models.py",
+  "app\modules\masters\gst_rate\schemas.py",
+  "app\modules\masters\gst_rate\repo.py",
+  "app\modules\masters\gst_rate\service.py",
+  "app\modules\masters\gst_rate\router.py",
+
+  "app\modules\masters\tax\__init__.py",
+  "app\modules\masters\tax\models.py",
+  "app\modules\masters\tax\schemas.py",
+  "app\modules\masters\tax\repo.py",
+  "app\modules\masters\tax\service.py",
+  "app\modules\masters\tax\router.py",
+
+  "app\modules\product\__init__.py",
+  "app\modules\product\models.py",
+  "app\modules\product\schemas.py",
+  "app\modules\product\repo.py",
+  "app\modules\product\service.py",
+  "app\modules\product\router.py"
+)
+
+$files | ForEach-Object { New-Item -ItemType File -Force -Path $_ | Out-Null }
+
+Write-Host "✅ Folder structure + files created."
